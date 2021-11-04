@@ -39,4 +39,9 @@ public class Player : MonoBehaviour
         float newYPos = Mathf.Clamp((transform.position.y + deltaY), minY, maxY);
         transform.position = new Vector2(newXPos, newYPos);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("TRIGGERED " + collision.gameObject.name);
+    }
 }

@@ -213,22 +213,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3397763900358343136, guid: af293ef238429cc4594247540a9039d4, type: 3}
-      propertyPath: m_Size.x
-      value: 0.40272492
-      objectReference: {fileID: 0}
-    - target: {fileID: -3397763900358343136, guid: af293ef238429cc4594247540a9039d4, type: 3}
-      propertyPath: m_Size.y
-      value: 0.39577675
-      objectReference: {fileID: 0}
-    - target: {fileID: -3397763900358343136, guid: af293ef238429cc4594247540a9039d4, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.006948203
-      objectReference: {fileID: 0}
-    - target: {fileID: -3397763900358343136, guid: af293ef238429cc4594247540a9039d4, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.003473997
-      objectReference: {fileID: 0}
     - target: {fileID: 74935548777614241, guid: af293ef238429cc4594247540a9039d4, type: 3}
       propertyPath: m_Name
       value: EnemyBanana
@@ -277,30 +261,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3397763900358343136, guid: af293ef238429cc4594247540a9039d4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af293ef238429cc4594247540a9039d4, type: 3}
---- !u!1 &1132973621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 74935548777614241, guid: af293ef238429cc4594247540a9039d4, type: 3}
-  m_PrefabInstance: {fileID: 1132973620}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1132973622
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132973621}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.031267002, y: -0.013896465}
-  serializedVersion: 2
-  m_Radius: 0.17704368
 --- !u!1 &1237517564
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +687,22 @@ PrefabInstance:
     - target: {fileID: 6631204534938787060, guid: b33ee61169e6e1f4388f5de259aef5f7, type: 3}
       propertyPath: m_Name
       value: Path (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735102489936608608, guid: b33ee61169e6e1f4388f5de259aef5f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735102489936608608, guid: b33ee61169e6e1f4388f5de259aef5f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996827958972937194, guid: b33ee61169e6e1f4388f5de259aef5f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996827958972937194, guid: b33ee61169e6e1f4388f5de259aef5f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33ee61169e6e1f4388f5de259aef5f7, type: 3}
