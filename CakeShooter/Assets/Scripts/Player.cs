@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float playerSpeed = 3.0f;
+    [SerializeField] float playerSpeed = 5.0f;
 
     float minX;
     float minY;
     float maxX;
     float maxY;
     float padding = 0.5f;
+    float paddingRight = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
     {
         var gameCam = Camera.main;
         minX = gameCam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
-        maxX = gameCam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+        maxX = gameCam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - paddingRight;
         minY = gameCam.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         maxY = gameCam.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
 
