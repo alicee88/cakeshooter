@@ -12,8 +12,12 @@ public class CakeRecipeCreator : MonoBehaviour
     void Start()
     {
         currentCake = cakeRecipes[0];
-        GameObject layer1 = Instantiate(currentCake.GetFirstLayer(), transform.position, transform.rotation) as GameObject;
-        GameObject layer2 = Instantiate(currentCake.GetSecondLayer(), transform.position, transform.rotation) as GameObject;
+
+        foreach(GameObject layerPrefab in cakeRecipes[0].GetCakeLayers())
+        {
+            GameObject layer = Instantiate(layerPrefab, transform.position, transform.rotation) as GameObject;
+        }
+
         GameObject top = Instantiate(currentCake.GetTop(), transform.position, transform.rotation) as GameObject;
     }
 

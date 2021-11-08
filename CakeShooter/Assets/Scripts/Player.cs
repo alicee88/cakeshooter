@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     float maxX;
     float maxY;
     float padding = 0.5f;
-    float paddingRight = 1.5f;
+    float paddingRight = 2.0f;
 
     // Start is called before the first frame update
     void Start()

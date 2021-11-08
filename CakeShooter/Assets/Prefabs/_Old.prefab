@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1623291920627505810}
   - component: {fileID: 707507902461761278}
-  - component: {fileID: 2005047178448940331}
-  - component: {fileID: -6131582334971172499}
+  - component: {fileID: 7321139284705789379}
+  - component: {fileID: 3874763115035084535}
   m_Layer: 0
-  m_Name: CakeLayer2
+  m_Name: _Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: c06a402fbd54a5344adfb47d4f1a0569, type: 3}
-  m_Color: {r: 0.9339623, g: 0.7650684, b: 0.18855463, a: 1}
+  m_Color: {r: 0.8103449, g: 0.36769313, b: 0.8584906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2005047178448940331
+--- !u!50 &7321139284705789379
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-6131582334971172499
+--- !u!61 &3874763115035084535
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
