@@ -5,6 +5,7 @@ using UnityEngine;
 public class CakeRecipeCreator : MonoBehaviour
 {
     [SerializeField] List<CakeRecipe> cakeRecipes;
+    [SerializeField] GameObject cakeParticlesPrefab;
     
     int currentRecipe = 0;
     int layersInRecipe = 0;
@@ -18,6 +19,7 @@ public class CakeRecipeCreator : MonoBehaviour
         currentCake = cakeRecipes[0];
         ingredientsOnPlate = new List<Ingredient>();
         layersInRecipe = currentCake.GetCakeLayers().Count;
+
     }
 
     // Update is called once per frame
@@ -42,14 +44,17 @@ public class CakeRecipeCreator : MonoBehaviour
             
             if (cakeFinished)
             {
+                Ingredient middleLayer = ingredientsOnPlate[layersInRecipe / 2];
                 Debug.Log("HOLY MOLY");
+                GameObject cakeParticles = Instantiate(cakeParticlesPrefab, middleLayer.transform.position, Quaternion.identity) as GameObject;
+                Destroy(cakeParticles, 0.5f);
             }
         }
     }
 
     private IEnumerator CreateCake(CakeRecipe recipe)
     {
-        foreach (Ingredient layerPrefab in cakeRecipes[0].GetCakeLayers())
+        foreach (Ingredient layerPrefab in recipe.GetCakeLayers())
         {
             Ingredient layer = Instantiate(layerPrefab, transform.position, transform.rotation) as Ingredient;
             layer.tag = "Recipe";

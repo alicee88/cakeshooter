@@ -15,6 +15,4 @@ MonoBehaviour:
   cakeLayers:
   - {fileID: -7808431643709878969, guid: 2f24e23e2345cf04ba0afe3c7202f225, type: 3}
   - {fileID: -5519445529409000268, guid: cd4d9f86684e9da48ab477126c5bf427, type: 3}
-  - {fileID: -7808431643709878969, guid: 2f24e23e2345cf04ba0afe3c7202f225, type: 3}
   - {fileID: -8157385278552428362, guid: 27bd1b6436517894a9ec73703f43348b, type: 3}
-  - {fileID: 0}

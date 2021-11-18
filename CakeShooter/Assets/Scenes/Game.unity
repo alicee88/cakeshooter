@@ -551,6 +551,7 @@ MonoBehaviour:
   cakeRecipes:
   - {fileID: 11400000, guid: 7490fa3dbdc82d943a4319725d981d11, type: 2}
   - {fileID: 11400000, guid: 0fc0a1a9716b24d48a45b067269d5eca, type: 2}
+  cakeParticlesPrefab: {fileID: 5294694238064015713, guid: fd22f370377cb8141b669a50f52605d2, type: 3}
 --- !u!4 &1473797001
 Transform:
   m_ObjectHideFlags: 0
