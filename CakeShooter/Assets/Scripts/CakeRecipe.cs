@@ -4,18 +4,13 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName ="Cake Recipe")]
 public class CakeRecipe : ScriptableObject
-{
+{  
+    [SerializeField] List<Ingredient> cakeLayers;
 
-    [SerializeField] List<GameObject> cakeLayers;
-    [SerializeField] GameObject cakeTop;
 
-    public List<GameObject> GetCakeLayers()
+    public List<Ingredient> GetCakeLayers()
     {
         return cakeLayers;
     }
 
-    public GameObject GetTop()
-    {
-        return cakeTop;
-    }
 }

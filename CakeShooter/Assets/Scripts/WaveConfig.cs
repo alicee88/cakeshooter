@@ -6,8 +6,8 @@ using UnityEngine;
 public class WaveConfig : ScriptableObject
 {
     [SerializeField] Transform pathPrefab;
-    [SerializeField] int numberOfEnemies = 5;
-    [SerializeField] float timeBetweenSpawns = 0.5f;
+    [SerializeField] int numberOfEnemies = 1;
+    [SerializeField] float timeBetweenSpawns = 1f;
     [SerializeField] float moveSpeed = 5f;
 
     public float GetMoveSpeed()

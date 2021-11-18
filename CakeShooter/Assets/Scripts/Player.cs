@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     float padding = 0.5f;
     float paddingRight = 2.0f;
 
+    CakeRecipeCreator recipeCreator;
+
     // Start is called before the first frame update
     void Start()
     {
         SetBounds();
-        Debug.Log("Setting bounds");
+        recipeCreator = FindObjectOfType<CakeRecipeCreator>();
     }
 
     private void SetBounds()
@@ -41,8 +43,18 @@ public class Player : MonoBehaviour
         transform.position = new Vector2(newXPos, newYPos);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("TRIGGERED " + collision.gameObject.name);
+        if (collision.gameObject.tag == "CakeLayer")
+        {
+            Debug.Log("COLLIDED WITH PLAYER " + collision.gameObject.name);
+            recipeCreator.AddLayer(collision.gameObject.GetComponent<Ingredient>());
+
+        }
+    }
+
+    public float GetXPos()
+    {
+        return transform.position.x;
     }
 }

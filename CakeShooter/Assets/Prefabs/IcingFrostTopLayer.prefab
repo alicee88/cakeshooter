@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5476770301335992397}
   - component: {fileID: 3629808902256159401}
   - component: {fileID: -2762725339001490062}
+  - component: {fileID: -360252001752320707}
   m_Layer: 0
   m_Name: IcingFrostTopLayer
-  m_TagString: Untagged
+  m_TagString: CakeLayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25cf8e63689b64c4b8f0508366a2e884, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cd4b2784715f0b4abc7ca4e9e262147, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +104,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &-2762725339001490062
 BoxCollider2D:
@@ -117,17 +118,30 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.004214436, y: -0.07586062}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0.004214406, y: 0.016269326}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1.2070312, y: 0.15625}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1823914, y: 0.09505582}
+  m_Size: {x: 1.1823914, y: 0.11180663}
   m_EdgeRadius: 0
+--- !u!114 &-360252001752320707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783097821613518059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bf626a9c1a1994fa24bb225d31956f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodType: 4

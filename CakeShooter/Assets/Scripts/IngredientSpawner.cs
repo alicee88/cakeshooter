@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour
 {
-    [SerializeField] List<WaveConfig> waveConfigs;
+    [SerializeField] List<GameObject> ingredients;
     
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnWave());
+        
+        StartCoroutine(SpawnIngredient());
     }
 
     // Update is called once per frame
@@ -18,12 +19,14 @@ public class IngredientSpawner : MonoBehaviour
         
     }
 
-    private IEnumerator SpawnWave()
+    private IEnumerator SpawnIngredient()
     {
-        foreach (WaveConfig wave in waveConfigs)
+        GameObject newIngredient;
+        while (true)
         {
-            Instantiate(wave);
+            newIngredient = ingredients[Random.Range(0, ingredients.Count)];
+            Instantiate(newIngredient, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(2.0f);
         }
-        yield return new WaitForSeconds(2.0f);
     }
 }
