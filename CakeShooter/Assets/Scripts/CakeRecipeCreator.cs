@@ -11,14 +11,17 @@ public class CakeRecipeCreator : MonoBehaviour
     int layersInRecipe = 0;
     CakeRecipe currentCake;
     List<Ingredient> ingredientsOnPlate;
+    List<Ingredient> ingredientsInRecipe;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CreateCake(cakeRecipes[0]));
+        
         currentCake = cakeRecipes[0];
         ingredientsOnPlate = new List<Ingredient>();
+        ingredientsInRecipe = new List<Ingredient>();
         layersInRecipe = currentCake.GetCakeLayers().Count;
+        StartCoroutine(CreateCake(cakeRecipes[0]));
 
     }
 
@@ -48,6 +51,16 @@ public class CakeRecipeCreator : MonoBehaviour
                 Debug.Log("HOLY MOLY");
                 GameObject cakeParticles = Instantiate(cakeParticlesPrefab, middleLayer.transform.position, Quaternion.identity) as GameObject;
                 Destroy(cakeParticles, 0.5f);
+                for(int j = 0; j < ingredientsOnPlate.Count; j++)
+                {
+                    Destroy(ingredientsOnPlate[j].gameObject);
+                    Debug.Log("DESTROYED PLATE INGREDIENT " + ingredientsOnPlate[j].name);
+                    Destroy(ingredientsInRecipe[j].gameObject);
+                    Debug.Log("DESTROYED RECIPE INGREDIENT " + ingredientsInRecipe[j].name);
+                }
+                ingredientsOnPlate.Clear();
+                ingredientsInRecipe.Clear();
+                cakeFinished = true;
             }
         }
     }
@@ -57,6 +70,7 @@ public class CakeRecipeCreator : MonoBehaviour
         foreach (Ingredient layerPrefab in recipe.GetCakeLayers())
         {
             Ingredient layer = Instantiate(layerPrefab, transform.position, transform.rotation) as Ingredient;
+            ingredientsInRecipe.Add(layer);
             layer.tag = "Recipe";
             yield return new WaitForSeconds(0.2f);
         }
