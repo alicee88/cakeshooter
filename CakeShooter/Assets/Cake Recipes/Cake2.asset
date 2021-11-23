@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0b0be20dee8b442b63ef0ed2443a03, type: 3}
   m_Name: Cake2
   m_EditorClassIdentifier: 
-  cakeLayer1: {fileID: 7330579161849273384, guid: 279295e0b8393c44bbe2b254c7ceb5b4, type: 3}
-  cakeLayer2: {fileID: 7330579161849273384, guid: d04c4bb4dca3e3e4c9b39735be825cc9, type: 3}
-  cakeTop: {fileID: 2962252896064704165, guid: 157939e35ea1bdc4683f8022622ff285, type: 3}
+  cakeLayers:
+  - {fileID: -7808431643709878969, guid: f8691ad53d214984da52623a95300b9c, type: 3}
+  - {fileID: -360252001752320707, guid: 6f03bd2053c93e2449f52904fbf96d7f, type: 3}
+  - {fileID: -8157385278552428362, guid: 55599b1ccb18c834187cf559b83d8f19, type: 3}
