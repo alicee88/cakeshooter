@@ -6,10 +6,10 @@ public class CakeRecipeCreator : MonoBehaviour
 {
     [SerializeField] List<CakeRecipe> cakeRecipes;
     [SerializeField] GameObject cakeParticlesPrefab;
+    [SerializeField] GameObject destroyedParticlesPrefab;
     
-    int currentRecipe = 0;
     int layersInRecipe = 0;
-    CakeRecipe currentCake;
+    CakeRecipe currentRecipe;
     List<Ingredient> ingredientsOnPlate;
     List<Ingredient> ingredientsInRecipe;
 
@@ -26,10 +26,9 @@ public class CakeRecipeCreator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckCakeIsFinished();
     }
 
-    private void CheckCakeIsFinished()
+    public void CheckCakeIsFinished()
     {
         if (layersInRecipe == ingredientsOnPlate.Count)
         {
@@ -38,34 +37,65 @@ public class CakeRecipeCreator : MonoBehaviour
                 Ingredient middleLayer = ingredientsOnPlate[layersInRecipe / 2];
                 Debug.Log("HOLY MOLY");
                 GameObject cakeParticles = Instantiate(cakeParticlesPrefab, middleLayer.transform.position, Quaternion.identity) as GameObject;
-                Destroy(cakeParticles, 0.5f);
-                DestroyCake();
+                Destroy(cakeParticles, 0.1f);
+                DestroyCake(true);
                 SetNextRecipe();
             }
+            else
+            {
+                Debug.Log("Right number of ingredients but wrong cake");
+                if(ingredientsOnPlate.Count > 0)
+                {
+                    SpawnDestroyedCakeParticles();
+                }
+                DestroyCake(false);
+            }
+        }
+        else
+        {
+            Debug.Log("Not enough ingredients, destroying");
+            if (ingredientsOnPlate.Count > 0)
+            {
+                SpawnDestroyedCakeParticles();
+            }
+            DestroyCake(false);
         }
     }
 
-    private void DestroyCake()
+    private void SpawnDestroyedCakeParticles()
     {
-        for (int j = 0; j < ingredientsOnPlate.Count; j++)
+        Ingredient middleLayer = ingredientsOnPlate[ingredientsOnPlate.Count / 2];
+        GameObject destroyedParticles = Instantiate(destroyedParticlesPrefab, middleLayer.transform.position, Quaternion.identity) as GameObject;
+        Destroy(destroyedParticles, 0.5f);
+    }
+
+    private void DestroyCake(bool destroyRecipe)
+    {
+        for (int i = 0; i < ingredientsOnPlate.Count; i++)
         {
-            Destroy(ingredientsOnPlate[j].gameObject);
-            Debug.Log("DESTROYED PLATE INGREDIENT " + ingredientsOnPlate[j].name);
-            Destroy(ingredientsInRecipe[j].gameObject);
-            Debug.Log("DESTROYED RECIPE INGREDIENT " + ingredientsInRecipe[j].name);
+            Destroy(ingredientsOnPlate[i].gameObject);
+            Debug.Log("DESTROYED PLATE INGREDIENT " + ingredientsOnPlate[i].name);
+            if (destroyRecipe)
+            {
+                Destroy(ingredientsInRecipe[i].gameObject);
+                Debug.Log("DESTROYED RECIPE INGREDIENT " + ingredientsInRecipe[i].name);
+            }
         }
         ingredientsOnPlate.Clear();
-        ingredientsInRecipe.Clear();
+        if (destroyRecipe)
+        {
+            ingredientsInRecipe.Clear();
+        }
     }
 
     private bool CakeFinished()
     {
         Debug.Log("GOT RIGHT NUMBER OF LAYERS");
-        for (int i = 0; i < currentCake.GetCakeLayers().Count; i++)
+        for (int i = 0; i < currentRecipe.GetCakeLayers().Count; i++)
         {
             Debug.Log("Cake layers: " + ingredientsOnPlate[i]);
-            Debug.Log("Recipe layers: " + currentCake.GetCakeLayers()[i]);
-            if (ingredientsOnPlate[i].GetFoodType() != currentCake.GetCakeLayers()[i].GetFoodType())
+            Debug.Log("Recipe layers: " + currentRecipe.GetCakeLayers()[i]);
+            if (ingredientsOnPlate[i].GetFoodType() != currentRecipe.GetCakeLayers()[i].GetFoodType())
             {
                 Debug.Log("Ingredients don't match, abort");
                 return false;
@@ -76,10 +106,10 @@ public class CakeRecipeCreator : MonoBehaviour
 
     private void SetNextRecipe()
     {
-        currentCake = cakeRecipes[Random.Range(0, cakeRecipes.Count)];
-        layersInRecipe = currentCake.GetCakeLayers().Count;
+        currentRecipe = cakeRecipes[Random.Range(0, cakeRecipes.Count)];
+        layersInRecipe = currentRecipe.GetCakeLayers().Count;
         Debug.Log("LAYERS IN RECIPE IS " + layersInRecipe);
-        StartCoroutine(CreateCake(currentCake));
+        StartCoroutine(CreateCake(currentRecipe));
     }
 
     private IEnumerator CreateCake(CakeRecipe recipe)
